@@ -171,7 +171,7 @@ func GetNostrProfileMetaData(npub string) (nostr.ProfileMetadata, error) {
 		return *metadata, err
 
 	}
-	sub := relay.Subscribe(ctx, filters)
+	sub, err := relay.Subscribe(ctx, filters)
 	evs := make([]nostr.Event, 0)
 
 	go func() {
@@ -217,7 +217,7 @@ func publishNostrEvent(ev nostr.Event, relays []string) {
 			}
 			time.Sleep(3 * time.Second)
 
-			status := relay.Publish(ctx, ev)
+			status, _ := relay.Publish(ctx, ev)
 			log.Info().Str("[NOSTR] published to %s:", status.String())
 
 			time.Sleep(3 * time.Second)
