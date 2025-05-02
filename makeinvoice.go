@@ -274,8 +274,8 @@ func MakeInvoice(params LNParams) (bolt11 string, err error) {
 		if err != nil {
 			return "", err
 		}
-
-		return gjson.ParseBytes(b).Get("payment_request").String(), nil
+		// used to be payment_request in older lnbits versions
+		return gjson.ParseBytes(b).Get("bolt11").String(), nil
 
 	case LNPayParams:
 		client := lnpay.NewClient(backend.PublicAccessKey)
