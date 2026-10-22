@@ -1,4 +1,4 @@
-FROM golang:1.21-alpine AS builder
+FROM golang:1.27.3-alpine3.24 AS builder
 
 WORKDIR /opt/build
 
@@ -11,7 +11,7 @@ RUN apk update && \
 RUN go get
 RUN go build
 
-FROM alpine:3.17
+FROM alpine:3.24.2
 
 ENV PORT=17422
 ENV DOMAIN=satdress.com
