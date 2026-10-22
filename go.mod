@@ -12,7 +12,7 @@ require (
 	github.com/nbd-wtf/go-nostr v0.29.3
 	github.com/nbd-wtf/ln-decodepay v1.12.1
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
-	github.com/rs/cors v1.10.1
+	github.com/rs/cors v1.11.1
 	github.com/rs/zerolog v1.32.0
 	github.com/tidwall/gjson v1.17.1
 )
